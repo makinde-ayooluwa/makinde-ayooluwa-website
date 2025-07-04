@@ -86,7 +86,7 @@
             padding: 0.5%;
         }
     </style>
-    <form action="#" method="post">
+    <form action="index.html" method="post">
         <input type="text" placeholder="Fullname">
         <input type="password" placeholder="Password">
         <button type="submit" id="load">
@@ -97,7 +97,7 @@
             let name = form.querySelector("input[type='text']").value;
             let pwd = form.querySelector("input[type='password']").value;
             let btn = form.querySelector("button");
-            let span = btn.querySelector("span");
+            let span = btn.querySelector("#submit");
             form.addEventListener('submit',(e)=>{
                 if(name.value == "" || pwd.value == ""){
                     e.preventDefault();
