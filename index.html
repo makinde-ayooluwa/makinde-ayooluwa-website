@@ -99,9 +99,10 @@
             let btn = form.querySelector("button");
             let span = btn.querySelector("span");
             form.addEventListener('submit',(e)=>{
-                if(name == "" || pwd == ""){
+                if(name.value == "" || pwd.value == ""){
                     e.preventDefault();
                 }else{
+                    e.preventDefault();
                     btn.innerHTML += "<div class='loader'></div>"
                     span.innerText = "SUBMITTING";
                     setInterval(() => {
