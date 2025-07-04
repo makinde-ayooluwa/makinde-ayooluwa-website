@@ -70,8 +70,8 @@
   border: 12px solid #f3f3f3;       /* Light grey */
   border-top: 12px solid #3498db;   /* Blue */
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 10px;
+  height: 10px;
   animation: spin 1.5s linear infinite;
 }
 
@@ -80,7 +80,17 @@
   100% { transform: rotate(360deg); }
 }
     </style>
-    <div class="loader"></div>
+    <button id="load">
+        <span id="submit">SUBMIT</span>
+    </button>
+    <script>
+        let load = document.querySelector("#load");
+        let submit = load.querySelector("span").innerText;
+        load.onclick = ()=>{
+            load.innerHTML += "<div class='loader'></div>";
+            submit = "SUBMITTING";
+        }
+    </script>
 </body>
 
 </html>
