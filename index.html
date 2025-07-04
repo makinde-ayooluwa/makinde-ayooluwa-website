@@ -85,13 +85,11 @@
     </button>
     <script>
         let load = document.querySelector("#load");
-        let submit = load.querySelector("span").innerText;
         load.onclick = ()=>{
-            load.innerHTML = '<button id="load">
+            load.innerHTML = `<button id="load">
                 <div class="loader"></div>
         <span id="submit">SUBMIT</span>
-    </button>';
-            submit = "SUBMITTING";
+    </button>`;
         }
     </script>
 </body>
