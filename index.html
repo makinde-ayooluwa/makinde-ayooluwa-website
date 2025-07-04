@@ -80,18 +80,38 @@
   100% { transform: rotate(360deg); }
 }
     </style>
-    <button id="load">
-        <span id="submit">SUBMIT</span>
-    </button>
-    <script>
-        let load = document.querySelector("#load");
-        load.onclick = ()=>{
-            load.innerHTML = `<button id="load">
-                <div class="loader"></div>
-        <span id="submit">SUBMITTING</span>
-    </button>`;
+    <style>
+        input{
+            display: block;
+            padding: 5%;
         }
-    </script>
+    </style>
+    <form action="#" method="post">
+        <input type="text" placeholder="Fullname">
+        <input type="password" placeholder="Password">
+        <button type="submit" id="load">
+            <span id="submit">SUBMIT</span>
+        </button>
+        <script>
+            let form = document.querySelector("form");
+            let name = form.querySelector("input[type='text']").value;
+            let pwd = form.querySelector("input[type='password']").value;
+            let btn = form.querySelector("button");
+            let span = btn.querySelector("span");
+            form.addEventListener('submit',(e)=>{
+                if(name == "" || pwd == ""){
+                    e.preventDefault();
+                }else{
+                    e.preventDefault();
+                    btn.innerHTML += "<span class='loader'></span>"
+                    span.innerText = "SUBMITTING";
+                    setInterval(() => {
+                        form.submit();
+                    }, 5000);
+                }
+            });
+        </script>
+    </form>
 </body>
 
 </html>
