@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <button onclick="localStorage.removeItem('Ecart')">Clear Cart</button>
+    <script>
+        let storedCart = JSON.parse(localStorage.getItem("Ecart"));
+        let page = document.querySelector("div");
+        storedCart.forEach(({name,age,work})=>{
+            page.innerHTML += `${name} <br> ${age} <br> ${work} <br>`;
+        })
+    </script>
+</body>
+</html>

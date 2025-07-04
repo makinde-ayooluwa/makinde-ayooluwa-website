@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product</title>
+</head>
+
+<body>
+    <div>
+
+    </div>
+    <script>
+        let products = [{
+            name: "Damilare",
+            age: 58,
+            work: "developer"
+        },
+        {
+            name: "Ayo",
+            age: 267,
+            work: "developer"
+        }];
+        let page = document.querySelector("div");
+        products.forEach(({ name, age, work }) => {
+            page.innerHTML += `<div id="product"><div id="name">${name}</div>
+            <div id="age">${age}</div>
+            <div id="work">${work}</div>
+            <div id="add-to-cart">Add to cart</div></div>`;
+
+        });
+    </script>
+    <script>
+        function getStoredCart() {
+            let storedCart = localStorage.getItem("Ecart");
+            return storedCart ? JSON.parse(storedCart) : [];
+        }
+        const cart = getStoredCart();
+        let prds = document.querySelectorAll("#product");
+        prds.forEach((prd) => {
+            let name = prd.querySelector("#name");
+            let age = prd.querySelector("#age");
+            let work = prd.querySelector("#work");
+            let btn = prd.querySelector("#add-to-cart")
+
+            btn.onclick = () => {
+                let newProduct = {
+                    name: name.innerText,
+                    age: age.innerText,
+                    work: work.innerText
+                };
+                let cartIsStored = cart.find(({ name }) => name === newProduct.name);
+                if (!cartIsStored) {
+                    cart.push(newProduct);
+                    localStorage.setItem("Ecart", JSON.stringify(cart));
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>
